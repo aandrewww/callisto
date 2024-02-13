@@ -11,4 +11,4 @@ COPY --from=builder /go/src/github.com/forbole/callisto/build/callisto /usr/bin/
 
 RUN callisto init
 
-CMD [ "callisto start" ]
+CMD [ "callisto" ]
