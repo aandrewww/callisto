@@ -9,6 +9,6 @@ FROM alpine:latest
 WORKDIR /callisto
 COPY --from=builder /go/src/github.com/forbole/callisto/build/callisto /usr/bin/callisto
 
-RUN callisto init --home /callisto/.callisto
+RUN /usr/bin/callisto init --home /callisto/.callisto
 
 CMD [ "callisto" ]
