@@ -8,4 +8,7 @@ RUN make build
 FROM alpine:latest
 WORKDIR /callisto
 COPY --from=builder /go/src/github.com/forbole/callisto/build/callisto /usr/bin/callisto
-CMD [ "callisto" ]
+
+RUN callisto init
+
+CMD [ "callisto start" ]
