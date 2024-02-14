@@ -21,8 +21,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     command: >
-      /bin/sh -c "callisto init --home /callisto/.callisto
-      && callisto parse genesis-file --home /callisto/.callisto --genesis-file-path /callisto/.callisto/genesis.json
+      /bin/sh -c "callisto parse genesis-file --home /callisto/.callisto --genesis-file-path /callisto/.callisto/genesis.json
       && callist start --home /callisto/.callisto"
     volumes:
       ## Modify first path to match configuration file.
