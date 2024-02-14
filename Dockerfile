@@ -9,8 +9,9 @@ FROM alpine:latest
 WORKDIR /callisto
 COPY --from=builder /go/src/github.com/forbole/callisto/build/callisto /usr/bin/callisto
 
-# RUN /usr/bin/callisto init --home ~/.callisto
+RUN /usr/bin/callisto init --home /callisto
 RUN ls -la /callisto
+
 RUN /usr/bin/callisto parse genesis-file --home /callisto --genesis-file-path /callisto/.callisto/genesis.json 
 
 CMD [ "callisto" ]
