@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
-    command: callisto start --home /callisto
+    command: callisto start --home /callisto/.callisto
     volumes:
       ## Modify first path to match configuration file.
       - /callisto/.callisto:/callisto/.callisto
