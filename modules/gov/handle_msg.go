@@ -137,5 +137,10 @@ func (m *Module) handleVoteEvent(tx *juno.Tx, voter string, events sdk.StringEve
 
 	vote := types.NewVote(proposalID, voter, voteOption, txTimestamp, tx.Height)
 
-	return m.db.SaveVote(vote)
+	err = m.db.SaveVote(vote)
+	if err != nil {
+		return fmt.Errorf("error while saving vote: %s", err)
+	}
+
+	return m.UpdateProposal(tx.Height, txTimestamp, proposalID)
 }
