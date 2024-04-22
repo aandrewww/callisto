@@ -83,7 +83,12 @@ func proposalCmd(parseConfig *parsecmdtypes.Config) *cobra.Command {
 				return err
 			}
 
-			return nil
+			validators, err := parseCtx.Node.Validators(height)
+			if err != nil {
+				return err
+			}
+
+			return govModule.UpdateProposalValidatorStatusesSnapshot(height, validators, proposalID)
 		},
 	}
 }

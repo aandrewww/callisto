@@ -56,7 +56,7 @@ func (m *Module) UpdateProposal(height int64, blockTime time.Time, id uint64) er
 		return fmt.Errorf("error while handling passed proposals: %s", err)
 	}
 
-	return nil
+	return m.UpdateProposalStakingPoolSnapshot(height, proposal.ProposalId)
 }
 
 func (m *Module) UpdateProposalValidatorStatusesSnapshot(height int64, blockVals *tmctypes.ResultValidators, id uint64) error {
