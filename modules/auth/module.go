@@ -3,10 +3,10 @@ package auth
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
 
-	"github.com/forbole/bdjuno/v4/database"
-	"github.com/forbole/bdjuno/v4/modules/auth/source"
-	"github.com/forbole/juno/v4/modules"
-	"github.com/forbole/juno/v4/modules/messages"
+	"github.com/forbole/callisto/v4/database"
+
+	"github.com/forbole/juno/v5/modules"
+	"github.com/forbole/juno/v5/modules/messages"
 )
 
 var (
@@ -20,14 +20,12 @@ type Module struct {
 	cdc            codec.Codec
 	db             *database.Db
 	messagesParser messages.MessageAddressesParser
-	source         source.Source
 }
 
 // NewModule builds a new Module instance
-func NewModule(source source.Source, messagesParser messages.MessageAddressesParser, cdc codec.Codec, db *database.Db) *Module {
+func NewModule(messagesParser messages.MessageAddressesParser, cdc codec.Codec, db *database.Db) *Module {
 	return &Module{
 		messagesParser: messagesParser,
-		source:         source,
 		cdc:            cdc,
 		db:             db,
 	}

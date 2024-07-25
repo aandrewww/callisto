@@ -1,7 +1,6 @@
 package types
 
 import (
-	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 )
@@ -106,13 +105,13 @@ func NewValidatorDescription(
 type ValidatorCommission struct {
 	ValAddress        string
 	Commission        *sdk.Dec
-	MinSelfDelegation *sdkmath.Int
+	MinSelfDelegation *sdk.Int
 	Height            int64
 }
 
 // NewValidatorCommission return a new validator commission instance
 func NewValidatorCommission(
-	valAddress string, rate *sdk.Dec, minSelfDelegation *sdkmath.Int, height int64,
+	valAddress string, rate *sdk.Dec, minSelfDelegation *sdk.Int, height int64,
 ) ValidatorCommission {
 	return ValidatorCommission{
 		ValAddress:        valAddress,
@@ -127,12 +126,12 @@ func NewValidatorCommission(
 // ValidatorVotingPower represents the voting power of a validator at a specific block height
 type ValidatorVotingPower struct {
 	ConsensusAddress string
-	VotingPower      sdkmath.Int
+	VotingPower      int64
 	Height           int64
 }
 
 // NewValidatorVotingPower creates a new ValidatorVotingPower
-func NewValidatorVotingPower(address string, votingPower sdkmath.Int, height int64) ValidatorVotingPower {
+func NewValidatorVotingPower(address string, votingPower int64, height int64) ValidatorVotingPower {
 	return ValidatorVotingPower{
 		ConsensusAddress: address,
 		VotingPower:      votingPower,

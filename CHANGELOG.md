@@ -1,25 +1,14 @@
 ## Unreleased
+- ([\#610](https://github.com/forbole/bdjuno/pull/610)) Add support for gov `v1` proposals
+- ([\#652](https://github.com/forbole/bdjuno/pull/652)) Update gov module parsing 
 - ([\#702](https://github.com/forbole/bdjuno/pull/702)) Add `message_type` module and store msg types inside `message_type` table, add `messages_by_type` function to allow to query messages by their types
+- ([\#704](https://github.com/forbole/bdjuno/pull/704)) Update `BDJuno` name to `Callisto`
+
+## Version v4.0.0
+## Notes
+This version is thought to be used with Cosmos SDK `v0.47.x`.
 
 ### Changes
-
-#### [cheqd]
-- ([\#545](https://github.com/forbole/bdjuno/pull/545)) Added `x/did` and `x/resource` module handlers to store data in db
-- ([\#550](https://github.com/forbole/bdjuno/pull/550)) Updated validators VP handlers, `voting_power` column type to TEXT, updated VotingPower type to `sdkmath.Int` for ValidatorVotingPower and ProposalValidatorStatusSnapshot struct
-- ([\#580](https://github.com/forbole/bdjuno/pull/580)) Removed `redelegation` from top accounts calculations
-
-#### [cheqd] Top Accounts Module
-- ([\#510](https://github.com/forbole/bdjuno/pull/510)) Implemented `top_accounts` module to store chain native token's balance for ranking 
-- ([\#511](https://github.com/forbole/bdjuno/pull/511)) Implemented parse cmd for `top_accounts` module 
-- ([\#520](https://github.com/forbole/bdjuno/pull/520)) Upgraded `cheqd-node` to `v1.2.2` and proposals parsing to correctly parse `v0.46.x` gov proposals
-- ([\#547](https://github.com/forbole/bdjuno/pull/547)) Upgraded `cheqd-node` to `v1.3.0` and added MsgDeactivateDidDoc handling
-- ([\#552](https://github.com/forbole/bdjuno/pull/552)) Upgraded `cheqd-node` to `v1.4.0`
-- ([\#555](https://github.com/forbole/bdjuno/pull/555)) Added `height` column to top accounts table
-- ([\#560](https://github.com/forbole/bdjuno/pull/560)) Stored latest block height instead of height `0` when updating top accounts and added RefreshAvailableBalance to periodic ops
-- ([\#570](https://github.com/forbole/bdjuno/pull/570)) Added `type` column to top accounts table, stored account type with top accounts module and added RefreshTopAccountsList to periodic ops
-
-#### CI
-- ([\#508](https://github.com/forbole/bdjuno/pull/508)) Upgrade workflow golangci version to v1.50.1
 
 #### Parse Command
 - ([\#492](https://github.com/forbole/bdjuno/pull/492)) Add parse command for periodic tasks: `x/bank` total supply, `x/distribution` community pool, `x/mint` inflation, `pricefeed` token price and price history, `x/staking` staking pool
@@ -30,7 +19,7 @@
 #### Staking Module
 - ([\#443](https://github.com/forbole/bdjuno/pull/443)) Remove tombstone status from staking module(already stored in slashing module)
 - ([\#455](https://github.com/forbole/bdjuno/pull/455)) Added `unbonding_tokens` and `staked_not_bonded_tokens` values to staking pool table
-- ([\#536](https://github.com/forbole/bdjuno/pull/536) Fix `PoolSnapshot` tokens type from  `sdk.Int` to `sdkmath.Int`
+- ([\#536](https://github.com/forbole/bdjuno/pull/536)) Fix `PoolSnapshot` tokens type from  `sdk.Int` to `sdkmath.Int`
 
 #### Gov Module
 - ([\#461](https://github.com/forbole/bdjuno/pull/461)) Parse `x/gov` genesis with `genesisDoc.InitialHeight` instead of the hard-coded height 1
@@ -48,8 +37,7 @@
 - ([\#491](https://github.com/forbole/bdjuno/pull/491)) Add host address to Hasura actions
 
 ### Dependencies
-- ([\#462](https://github.com/forbole/bdjuno/pull/462)) Updated Juno to `v3.4.0`
-- ([\#542](https://github.com/forbole/bdjuno/pull/542)) Updated Juno to `v4.1.0`,  BDJuno to `v4` and Golang version to `1.19`
+- ([\#542](https://github.com/forbole/bdjuno/pull/542)) Updated Juno to `v5.1.0`
 
 
 ## Version v3.2.0
