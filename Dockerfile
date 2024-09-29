@@ -2,6 +2,7 @@ FROM golang:1.20-alpine AS builder
 RUN apk update && apk add --no-cache make git
 WORKDIR /go/src/github.com/forbole/callisto
 COPY . ./
+RUN go mod tidy
 RUN go mod download
 RUN make build
 
